@@ -1,0 +1,388 @@
+@charset "UTF-8";
+/**
+ * 筛选控件的样式
+ * 
+ *
+ * @author: zhouhai
+ * @create: 2014-07-16
+ * @update: 2014-07-16
+ */
+@import "../variables";
+@import "../reset";
+@import "../mixins";
+@import "../font";
+@import "../base";
+
+.screenbar{
+	font-size: $fontsize4;
+	background: #fdfdfd;
+    width:100%;
+	&>ul{
+		overflow: hidden;
+		border-bottom: $thinBorder solid $lightBorderGray;
+		&>li{
+			float: left;
+			width: 33.333333%;
+			color:$gray2;
+			padding: $gap2 0;
+			text-align: center;
+            @include box-sizing();
+            border-right:$thinBorder solid $lightBorderGray;
+			span{
+				padding:$gap2 $gap4 $gap2 $gap4;
+				@include transition(opacity 0.1s ease-in 0s);
+                .icon-up,.icon-down{
+                    padding-left: $gap1;
+                    padding-right: 0;
+                    position: relative;
+                    top:1px;
+                }
+			}
+			span.active{
+				color:$mainColor1;
+			}
+		}
+		&>li:last-child{
+			border-right:none;
+		}
+	}
+    .magic-border{
+        opacity: 0;
+        width:100px;
+        height: 3px;
+        background:$mainColor1;
+        position: absolute;
+        bottom:0;
+        @include transition(left 0.2s ease-in 0s);
+    }
+	&>.screenbarmask{
+		opacity: 0;
+		position: absolute;
+		top:40px;
+		left:0;
+		width:100%;
+		height:900px;
+		background: rgba(0,0,0,0.5);
+		z-index: $layer7;
+		@include transition(opacity 0.1s ease-in 0s);
+	}
+	&>.tab-content{
+		// opacity: 0;
+		position: absolute;
+		top:40px;
+		left:0;
+		width:100%;
+		z-index: $layer7;
+		background: #f7f7f7;
+		color:$gray2;
+		font-size: $fontsize4;
+        overflow: hidden;
+		@include transition(opacity 0.1s ease-in 0s);
+		&>ul{
+			&>li{
+                position: relative;
+				overflow: hidden;
+				clear: both;
+				border-bottom: $thinBorder solid $lightBorderGray;
+                .icon{
+                    display: none;
+                }
+			}
+			&>li>a{
+				display: inline-block;
+				padding:13px $gap3;
+                width:100%;
+                .icon-up,.icon-down{
+                    position: relative;
+                    top:1px;
+                    padding-left: $gap1;
+                }
+			}
+			&>li>span{
+				display: inline-block;
+                position: absolute;
+                top:0;
+				right: 0;
+				line-height: 49px;
+				margin-right: $gap4;
+				font-size: $fontsize8;
+			}
+			&>li.active{
+				background:#eee;
+				&>a{
+					color:$mainColor1;
+				}
+				&>span{
+					color:$mainColor1;
+				}
+                .icon{
+                    display: inline;
+                }
+			}
+		}
+	}
+	#screenContent{
+		.condition-box{
+			border-bottom: $thinBorder solid $borderGray;
+            font-family: $numberFont;
+			ul{
+				overflow: hidden;
+				padding:$gap2 $gap3;
+				li{
+					float: left;
+					margin: 0 $gap1;
+					padding:6px $gap3;
+					background:#eee;
+					border-radius:$smallRadius;
+				}
+			}
+		}
+		.conditions{
+			overflow: hidden;
+			height:230px;
+			border-bottom: $thinBorder solid $borderGray;
+			.tabs-con{
+				float: left;
+				width:140px;
+				height: 100%;
+                background: $backGray;
+				border-right:$thinBorder solid $borderGray;
+                position: relative;
+                z-index: $layer7;
+				ul{
+					li{
+						padding:$gap2 $gap4;
+						border-bottom: $thinBorder solid $borderGray;
+                        .screen-icon{
+                            width: 18px;
+                            height: 18px;
+                            border-radius: 18px;
+                            padding: 4px;
+                            font-size: $fontsize3;
+                            margin-right: $gap1;
+                            color: $mainColor3;
+                            position: relative;
+                            top: 1px;
+                            background: $mainColor1;
+                        }
+					}
+                    & li.active{
+                        background: $graye;
+                        border-right: $graye;
+                        margin-right: -1px;
+                    }
+				}
+			}
+			.tabs-con-content{
+				margin-left: 141px;
+                background: $graye;
+                font-family: $numberFont;
+                height: 230px;
+                overflow: hidden;
+				& ul{
+                    // width:100%;
+					& li{
+                        position: relative;
+						overflow: hidden;
+						padding:$gap2 $gap4;
+						border-bottom: $thinBorder solid #dedede;
+                        & span:nth-child(1){
+                            width: 90%;
+                            margin-right: 20px;
+                        }
+						span.icon-gou{
+                            opacity:0;
+							position: absolute;
+                            top: 50%;
+                            right: 10px;
+                            margin-top: -9px;
+						}
+                        span.icon-jiantou{
+                            color:$gray4;
+                            float: right;
+                        }
+					}
+                    & li.active{
+                        background:#eee;
+                        &>a{
+                            color:$mainColor1;
+                        }
+                        &>span{
+                            opacity: 1;
+                            color:$mainColor1;
+                            margin-right: 20px;
+                            &:nth-child(2){
+                                margin-right: 0px;
+                            }
+                        }
+                    }
+				}
+                &>ul{
+                    width:100%;
+                }
+			}
+            
+		}
+		.screen-btn{
+			// height:40px;
+			border-bottom: $thinBorder solid $borderGray;
+			a{
+				width: 280px;
+                text-align: center;
+				display: inline-block;
+				margin:$gap2 0;
+				background: $mainColor1;
+				line-height: 40px;
+				font-size: $fontsize7;
+				color:$mainColor3;
+				border-radius: $smallRadius;
+                position: relative;
+                left:50%;
+                margin-left: -140px;
+			}
+		}
+	}
+}
+
+@media (max-width: 767px){
+	#destinationCon{
+        position: relative;
+        height: 100%;
+        .level1{
+            position: absolute;
+            top:0;
+            left:0;
+            width:100%;
+            background: $graye;
+            border-right: $thinBorder solid $borderGray;
+            height: 230px;
+            overflow-y:scroll; 
+            &>ul{
+                width: 100%;
+            }
+            // @include transition(left 0.2s ease-in 0s);
+        }
+        .back-bar{
+            color:$gray4;
+            .icon-back{
+                margin-right: $gap1;
+                position: relative;
+                top:1px;
+            }
+        }
+        .level2{
+            position: absolute;
+            top:0;
+            left:100%;
+            width:100%;
+            height: 230px;
+            border-left: $thinBorder solid $borderGray;
+            overflow: hidden;
+            ul{
+                width:100%;
+            }
+            
+        }
+        .level3{
+            position: absolute;
+            top:0;
+            left:100%;
+            width:100%;
+            height: 230px;
+            border-left: $thinBorder solid $borderGray;
+            overflow: hidden;
+            ul{
+                width:100%;
+            }
+        }
+    }
+}
+
+@media (min-width: 768px){
+    #destinationCon{
+        position: relative;
+        height: 100%;
+        .back-bar{
+            display:none;
+        }
+        .level1{
+            position: absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height: 230px;
+            background: $graye;
+            border-right: $thinBorder solid $borderGray;
+            &>ul{
+                width:33.333333%;
+                border-right:$thinBorder solid $borderGray;
+            }
+        }
+        .level2{
+            position: absolute;
+            top:0;
+            left:100%;
+            width:100%;
+            height: 230px;
+            border-left: $thinBorder solid $borderGray;
+            border-right: $thinBorder solid $borderGray;
+            overflow: hidden;
+            ul{
+                width: 100%;
+            }
+        }
+        .level3{
+            position: absolute;
+            top:0;
+            left:100%;
+            width:100%;
+            height: 230px;
+            border-left: $thinBorder solid $borderGray;
+            overflow: hidden;
+            ul{
+                width: 100%;
+            }
+        }
+    }
+    .screenbar{
+        font-size: $fontsize6;
+        &>.screenbarmask{
+            top:45px;
+        }
+        &>.tab-content{
+            top:45px;
+        }
+        .magic-border{
+            // opacity: 0;
+            width:150px;
+            // height: 3px;
+            // background:$mainColor1;
+            // position: absolute;
+            // bottom:0;
+            // @include transition(left 0.2s ease-in 0s);
+        }
+    }
+}
+@media (max-device-height: 480px){
+    .screenbar{
+        #screenContent{
+            .conditions{
+                height: 150px;
+                .tabs-con-content{ 
+                    height: 150px;
+                }
+            }
+            #destinationCon{
+                .level1{
+                    height: 150px;
+                }
+                .level2{
+                    height: 150px;
+                }
+                .level3{
+                    height: 150px;
+                }
+            }
+        }
+    }   
+}

@@ -1,0 +1,61 @@
+@charset "utf-8";
+/**
+ * @description: tips
+ * @author: 周海 (zhouhai@tuniu.com)
+ * @update: 周海 (2014-09-09 09:48)
+ */
+@import "../variables";
+@import "../reset";
+@import "../base";
+@import "../font";
+
+.tips,.tips2{
+	font-size: $fontsize5;
+	table{
+		margin:9px 11px 0 11px;
+		tr{
+			td{
+				line-height: 1.5;
+			}
+			td:first-child{
+				width:32px;
+				color:#ff9b66;
+				span{
+					position: relative;
+					top:2px;
+					left:5px;
+				}
+			}
+			td:last-child{
+				text-align: left;
+				color:#383331;
+			}
+			.emphasize{
+				color:#ff9b66;
+			}
+		}
+	}
+}
+.tips2{
+	font-size: $fontsize2;
+	table{
+		margin:6px 11px 0 11px;
+		tr{
+			td:first-child{
+				width:20px;
+				span{
+					position: relative;
+					top:1px;
+				}
+				img{
+					position: relative;
+					top:3px;
+				}
+			}
+			td:last-child{
+				text-align: left;
+				color:$mainColor2;
+			}
+		}
+	}
+}

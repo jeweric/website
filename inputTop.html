@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+	    <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+	    <title>逗播</title>
+		<meta name="keywords" content="逗播" />
+		<meta name="description" content="逗播" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+		<meta content="telephone=no" name="format-detection" />
+		<!-- <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon.png"> -->
+		<!-- <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-retina.png"> -->
+		<!-- <link rel="canonical" href="<?php echo $this->tkd['canonical']?>" > -->
+		<link rel="shortcut icon" href="${wap}/img/common/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="../wap/css/test/test.css" />
+	</head>
+<body>
+	<div class="container" id="container">
+		<div class="fixed-header">
+			<div class="textfield">
+				<input id="data-message" type="text" placeholder="此处输入聊天内容..." value="" />
+			</div>
+			<a href="javascript:;" id="send-message">发送</a>
+		</div>
+		<div id="h5player">
+	        <video webkit-playsinline poster='./img/pic.png' autoplay="autoplay"
+	               src="http://low.live.ngmob.com/hls/636.m3u8" width="100%"/>
+	    </div>
+		<div id="wrapper">
+		<div class="scroll-body">
+		    <div id="messages">
+		        <div class="bubble">
+		        	<div class="face" style="background:url('./img/1.jpg') -30px 0 no-repeat;background-size:250%;"></div>
+		            <p>关关雎鸠，在河之洲。窈窕淑女，君子好逑。参差荇菜，左右流之。窈窕淑女，寤寐求之。</p>
+		        </div>
+		        <div class="bubble">
+		            <div class="face" style="background:url('img/2.jpg') -30px 0 no-repeat;background-size:250%;"></div>
+		            <p>好想去，有小伙伴想加入一起么？</p>
+		        </div>
+		        <div class="bubble">
+		            <div class="face" style="background:url('img/3.jpg') -30px 0 no-repeat;background-size:250%;"></div>
+		            <p>哇塞，真有种身临其境的感觉哟，主播这是哪啊？快看我！快看我！</p>
+		        </div>
+		        <div class="my-bubble">
+		        	<p>谁在这里撒野？</p>
+		            <div class="face" style="background:url('img/4.jpg') -30px 0 no-repeat;background-size:250%;"></div>
+		        </div>
+		        <div class="my-bubble">
+		        	<p>真是的。</p>
+		            <div class="face" style="background:url('img/4.jpg') -30px 0 no-repeat;background-size:250%;"></div>
+		        </div>
+		        <div class="sys-bubble">
+		            <div class="face" style="background:url('img/1.jpg') -30px 0 no-repeat;background-size:250%;"></div>
+		            <p>第一次直播，感谢大家支持！</p>
+		        </div>
+		    </div>
+		</div>
+		</div>
+		<div class="fixed-footer">
+			<div class="ad">
+				<img class="logo" src="./img/logo.png" />
+				<a class="down" href="#"><img src="./img/downbtn.png" /></a>
+			</div>
+			<span class="close" id="closeAd"><img src="./img/close.png" /></span>
+		</div>
+	</div>
+</body>
+<script src="http://211.151.14.187:3000/socket.io/socket.io.js"></script>
+<script type="text/javascript" src="../wap/js/sea-modules/seajs/1.3.1/sea.js"></script>
+<script type="text/javascript" src="../wap/js/config.js"></script>
+<script type="text/javascript" src="../wap/js/business-modules/test/test.js"></script>
+</html>

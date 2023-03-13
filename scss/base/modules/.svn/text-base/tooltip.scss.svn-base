@@ -1,0 +1,51 @@
+@charset "UTF-8";
+/**
+ * tooltip的样式
+ * 
+ *
+ * @author: zhouhai
+ * @create: 2014-08-18
+ * @update: 2014-08-18
+ */
+@import "../variables";
+@import "../reset";
+@import "../mixins";
+@import "../font";
+@import "../base";
+
+$arrowLeftOffset: 60%;
+$arrowTopOffset: -5px;
+$arrowWidth: 10px;
+$arrowHeight: 10px;
+.tooltip{
+    position: relative;
+    background: #e5f6f1;
+    border-radius:$smallRadius;
+    margin:0 0 $gap2 0;
+    @include transition(opacity 0.5s linear 0s);
+    .arrow{
+        position: absolute;
+        left:$arrowLeftOffset;
+        display: inline-block;
+        width: $arrowWidth;
+        height: $arrowHeight;
+        @include transform(rotate(45deg));
+        top: $arrowTopOffset;
+        background-color: #e5f6f1;
+    }
+    .content-box{
+        padding:$gap2;
+        color:#339377;
+    }
+    &.white{
+        border:$thinBorder solid $borderGray;
+        background: $mainColor3;
+        .arrow{
+            background:$mainColor3;
+            border: $thinBorder solid $borderGray;
+            border-right:none;
+            border-bottom:none;
+        }
+    }
+}
+

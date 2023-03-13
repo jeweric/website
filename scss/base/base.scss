@@ -1,0 +1,155 @@
+@charset "utf-8";
+// 全站基本样式
+// @author 周海 zhouhai@tuniu.com
+// @time 2014-06-30 11:31
+
+@import "variables.scss";
+@import "mixins";
+@import "font";
+
+// 特殊字符
+.rmb{ font-family: $specialFont; } // 人民币  OK
+.dot{ font-family: $specialFont;  } // 圆点   ok
+
+* {
+-webkit-tap-highlight-color: rgba(0,0,0,0);// 重置ios下的默认半透明的灰色背景
+}
+
+html{ font-size: 10px; font-family:$textFont; } // rem的基准，谨慎修改  OK
+body{
+    line-height:$lineHeight;
+    text-align:left;
+    // 去掉百度的小图标
+    &>a{
+        display: none; 
+    }
+}
+a{ text-decoration:none; color:$gray1; -webkit-tap-highlight-color:rgba(0,0,0,0); }
+a:visited{color:$gray1;}
+.clearfix{ 
+    zoom: 1;
+    &:after {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+    }
+}
+a:active{
+    @include opacity(0.5);
+}
+a:visited{
+    @include opacity(1);
+}
+// 参见https://bugs.webkit.org/show_bug.cgi?id=84186，让移动浏览器不要自己调整字体大小
+// h1,div {max-height: 100000px;}
+
+// 增加form表单默认样式
+input,
+select,
+textarea { margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; }
+
+// 排版
+h1, h2, h3, h4, h5, h6 { font-size: $fontsize1; font-weight: 700; }
+
+input,button{-webkit-appearance: none;}// 重置ios按钮样式
+
+// 图标
+.icon{
+    position: relative;
+    font-size: $fontsize10;
+    top:-1px;
+    margin-right: 2px;
+}
+
+img{
+    display:block;
+    width:100%
+}
+h2{
+    font-size:$fontsize8
+}
+h3{
+    font-size:$fontsize6
+}
+p{color:$gray3}
+p,h2,h3,h4{
+   padding:$gap1 $gap3
+}
+
+.box-a{display: block}
+// del中文和数字对齐
+del{
+    font-family: "Arial";
+}
+
+// 重置表单的默认样式
+input,button,select,textarea{outline:none}
+textarea{resize:none}
+
+// 表示强调的样式
+.emphasize-c{
+    color: $mainColor2;
+}
+// 表示弱化的样式
+.weaken-c{
+    color: #ababab;
+}
+// 表示一些协议或文书
+.protocol-c{
+    color:$mainColor4;
+}
+
+label.error{
+    display: inline-block;
+    color:$mainColor2;
+    font-size: $fontsize2;
+    margin-top: $gap2;
+    font-family: 'iconfont';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+label.error:before{
+    content: "\e620";
+    position: relative;
+    top:1px;
+    margin:0 $gap1 0 $gap1;
+}
+div,p,td{
+    word-break:break-all;
+}
+// pre内容的自动换行
+pre{
+    white-space:pre-wrap;/*　css-3　*/
+    white-space:-moz-pre-wrap;/*　Mozilla,　since　1999　*/
+    white-space:-pre-wrap;/*　Opera　4-6　*/
+    white-space:-o-pre-wrap;/*　Opera　7　*/
+    word-wrap:break-word;/*　Internet　Explorer　5.5+　*/
+}
+
+.price{color:$mainColor1}
+.large-price{font-size:$fontsize8}
+
+.fengexian{
+    border-bottom:1px solid $lightBorderGray;
+    margin: $gap0 $gap3 $gap2 $gap3;
+}
+.jiange-area{
+    background: $backGray;
+    border-top: 1px solid $lightBorderGray;
+    border-bottom: 1px solid $lightBorderGray;
+    height:$gap1;
+}
+
+.box-padding{padding:$gap3 $gap0}
+
+#action-bar-padding{height:58px}
