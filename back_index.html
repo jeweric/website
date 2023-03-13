@@ -1,0 +1,186 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %} 
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <div class="pcoded-content">
+        <div class="pcoded-inner-content">
+            <!-- [ breadcrumb ] start -->
+
+            <!-- [ breadcrumb ] end -->
+            <div class="main-body">
+                <div class="page-wrapper">
+                    <!-- [ Main Content ] start -->
+                    <div class="row">
+                        <div class="col-md-6 col-xl-4">
+                            <div class="card daily-sales">
+                                <div class="card-block">
+                                    <h6 class="mb-4">时间</h6>
+                                    <div class="row d-flex align-items-center">
+                                        <div class="col-9">
+                                            <h3 class="f-w-300 d-flex align-items-center m-b-0">
+                                                <i class="feather icon-arrow-up text-c-green f-30 m-r-10"></i>
+                                                {{ today }}
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--[ daily sales section ] start-->
+                        <div class="col-md-6 col-xl-4">
+                            <div class="card daily-sales">
+                                <div class="card-block">
+                                    <h6 class="mb-4">总收益</h6>
+                                    <div class="row d-flex align-items-center">
+                                        <div class="col-9">
+                                            <h3 class="f-w-300 d-flex align-items-center m-b-0">
+                                                <i class="feather icon-arrow-up text-c-green f-30 m-r-10"></i>
+                                                {{  "ETH %.6f"|format(farm.value) }}
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-xl-4">
+                            <div class="card daily-sales">
+                                <div class="card-block">
+                                    <h6 class="mb-4">已支付余额</h6>
+                                    <div class="row d-flex align-items-center">
+                                        <div class="col-9">
+                                            <h3 class="f-w-300 d-flex align-items-center m-b-0">
+                                                <i class="feather icon-arrow-up text-c-green f-30 m-r-10"></i>
+                                                {{ "ETH %.6f"|format(farm.paid) }}
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+
+                        <div class="col-md-6 col-xl-4">
+                            <div class="card daily-sales">
+                                <div class="card-block">
+                                    <h6 class="mb-4">GMT/UTC +0</h6>
+                                    <div class="row d-flex align-items-center">
+                                        <div class="col-9">
+                                            <h3 class="f-w-300 d-flex align-items-center m-b-0">
+                                                <i class="feather icon-arrow-up text-c-green f-30 m-r-10"></i>
+                                                {{ "ETH %.6f"|format(farm.value_today) }}
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+
+
+                        <div class="col-md-6 col-xl-4">
+                            <div class="card daily-sales">
+                                <div class="card-block">
+                                    <h6 class="mb-4">前日挖矿收益 {{ farm.payout_history[-1][0][:-10]  }} </h6>
+                                    <div class="row d-flex align-items-center">
+                                        <div class="col-9">
+                                            <h3 class="f-w-300 d-flex align-items-center m-b-0">
+                                                <i class="feather icon-arrow-up text-c-green f-30 m-r-10"></i>
+                                                {{ "%.6f"|format(farm.payout_history[-1][2] + farm.payout_history_fee[-1][2]) }}
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+                         <div class="col-md-6 col-xl-4">
+                            <div class="card daily-sales">
+                                <div class="card-block">
+                                    <h6 class="mb-4">今日挖矿收益 </h6>
+                                    <div class="row d-flex align-items-center">
+                                        <div class="col-9">
+                                            <h3 class="f-w-300 d-flex align-items-center m-b-0">
+                                                <i class="feather icon-arrow-up text-c-green f-30 m-r-10"></i>
+                                                {{ "%.6f"|format(farm.value_today) }}
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+
+{#                        <div class="col-md-6 col-xl-4">#}
+{#                            <div class="card daily-sales">#}
+{#                                <div class="card-block">#}
+{#                                    <h6 class="mb-4">{{ farm.payout_history[-2][0][:-10]  }} 收益</h6>#}
+{#                                    <div class="row d-flex align-items-center">#}
+{#                                        <div class="col-9">#}
+{#                                            <h3 class="f-w-300 d-flex align-items-center m-b-0">#}
+{#                                                <i class="feather icon-arrow-up text-c-green f-30 m-r-10"></i>#}
+{#                                                {{ "%.6f"|format(farm.payout_history[-2][2] + farm.payout_history_fee[-2][2]) }}#}
+{#                                            </h3>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                         </div>#}
+                        <!--[ daily sales section ] end-->
+
+                        <!-- [ statistics year chart ] start -->
+                        <div class="col-xl-4 col-md-6">
+                            <div class="card">
+                                <div class="card-block border-bottom">
+                                    <div class="row d-flex align-items-center">
+                                        <div class="col-auto">
+                                            <i class="feather icon-zap f-30 text-c-green"></i>
+                                        </div>
+                                        <div class="col">
+                                            <h3 class="f-w-300">{{ farm.worker_length_online }} / {{ farm.worker_length }}</h3>
+                                            <span class="d-block text-uppercase">在线/总矿机数</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-block">
+                                    <div class="row d-flex align-items-center">
+                                        <div class="col-auto">
+                                            <i class="feather icon-map-pin f-30 text-c-blue"></i>
+                                        </div>
+                                        <div class="col">
+                                            <h3 class="f-w-300">{{ "%.2f G" | format(farm.hashrate/1000000000) }}</h3>
+                                            <span class="d-block text-uppercase">实时算力</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-block">
+                                    <div class="row d-flex align-items-center">
+                                        <div class="col-auto">
+                                            <i class="feather icon-map-pin f-30 text-c-blue"></i>
+                                        </div>
+                                        <div class="col">
+                                            <h3 class="f-w-300">{{"%.2f G" | format( farm.hashes_last_day/1000000000) }}</h3>
+                                            <span class="d-block text-uppercase">过去24小时总算力</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- [ statistics year chart ] end -->
+
+                    </div>
+                    <!-- [ Main Content ] end -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
